@@ -24,6 +24,6 @@ router.register(r'expenses', ExpensesViewSet)
 
 
 urlpatterns = [
-    path('api/', include(router.urls)),  # ✅ Оставляем только API без токенов
+    path('api/', include(router.urls)),  
 ]
 

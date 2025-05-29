@@ -15,8 +15,15 @@ jobs:
 
       - name: Save SSH key
         run: |
-          echo "${{ secrets.AWS_SSH_KEY }}" > aws_key.pem
-          chmod 600 aws_key.pem
+             echo "${{ secrets.AWS_SSH_KEY }}" > Eleganza.pem
+              chmod 400 Eleganza.pem
+              ssh -i Eleganza.pem -o StrictHostKeyChecking=no ubuntu@13.48.135.188 <<EOF
+                cd /home/ubuntu/project
+                git pull origin main
+                docker-compose down
+                docker-compose up --build -d
+              EOF
+
       
 
 
