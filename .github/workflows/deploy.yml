@@ -15,8 +15,9 @@ jobs:
 
       - name: Устанавливаем SSH-ключ
         run: |
-          echo "${{ secrets.AWS_SSH_KEY }}" > aws_key.pub
-          chmod 600 aws_key.pub
+          echo "${{ secrets.AWS_SSH_KEY }}" > aws_key.pem
+          chmod 400 aws_key.pem
+
 
       - name: Деплой на сервер
         run: |
