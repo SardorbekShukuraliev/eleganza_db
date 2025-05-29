@@ -13,10 +13,11 @@ jobs:
       - name: Получаем код из GitHub
         uses: actions/checkout@v3
 
-      - name: Устанавливаем SSH-ключ
+      - name: Save SSH key
         run: |
-          echo {{ secrets.AWS_SSH_KEY }} > aws_key.pem
-          chmod 400 aws_key.pem
+          echo "${{ secrets.AWS_SSH_KEY }}" > aws_key.pem
+          chmod 600 aws_key.pem
+      
 
 
       - name: Деплой на сервер
