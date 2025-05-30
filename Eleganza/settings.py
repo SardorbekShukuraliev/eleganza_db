@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-cktab_uv%8-&ip913ic(tw%$63f_1_%+^pxj28ld3co^rse!m7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+
 
 
 # Application definition
