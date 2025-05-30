@@ -15,22 +15,13 @@ jobs:
 
       - name: Save SSH key
         run: |
-             echo "${{ secrets.AWS_SSH_KEY }}" > Eleganza.pem
-              chmod 400 Eleganza.pem
-              ssh -i Eleganza.pem -o StrictHostKeyChecking=no ubuntu@13.48.135.188 <<EOF
-                cd /home/ubuntu/project
-                git pull origin main
-                docker-compose down
-                docker-compose up --build -d
-              EOF
-
-      
-
+          echo "${{ secrets.AWS_SSH_KEY }}" > eleganza_db_SSH_key.pem
+          chmod 400 eleganza_db_SSH_key.pem
 
       - name: Деплой на сервер
         run: |
-          ssh -i aws_key.pem -o StrictHostKeyChecking=no ubuntu@13.48.135.188 <<EOF
-            cd /home/ubuntu/project
+          ssh -i eleganza_db_SSH_key.pem -o StrictHostKeyChecking=no ubuntu@13.48.135.188 << 'EOF'
+            cd /home/ubuntu/Eleganza
             git pull origin main
             docker-compose down
             docker-compose up --build -d
