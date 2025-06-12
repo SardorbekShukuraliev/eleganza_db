@@ -20,9 +20,12 @@ jobs:
 
       - name: Деплой на сервер
         run: |
-          ssh -i eleganza_db_SSH_key.pem -o StrictHostKeyChecking=no ubuntu@13.48.135.188 << 'EOF'
-            cd /home/ubuntu/Eleganza
-            git pull origin main
-            docker-compose down
-            docker-compose up --build -d
-          EOF
+            ssh -i eleganza_db_SSH_key.pem -o StrictHostKeyChecking=no ubuntu@13.62.1.39 << 'EOF'
+              cd /home/ubuntu/Eleganza
+              git pull origin main
+              docker-compose down
+              docker-compose up --build -d
+            EOF
+        
+        
+

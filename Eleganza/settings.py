@@ -27,6 +27,9 @@ SECRET_KEY = 'django-insecure-cktab_uv%8-&ip913ic(tw%$63f_1_%+^pxj28ld3co^rse!m7
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:5500",  
+]
 
 
 
@@ -40,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     # 'rest_framework_simplejwt',
     'api',
 ]
@@ -52,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware', 
     # 'api.middleware.RestrictAdminAccess',
     # 'api.middleware.JWTAuthMiddleware',
     
@@ -87,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'eleganza_db',
         'USER': 'postgres',
-        'PASSWORD': '111',
+        'PASSWORD': 'qqqqqqqq',
         'HOST': 'localhost',
         'PORT': '5432',
     }
